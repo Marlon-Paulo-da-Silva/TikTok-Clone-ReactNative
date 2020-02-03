@@ -11,6 +11,8 @@
     "@react-native-community/masked-view": "^0.1.6",
     "expo": "~36.0.0",
     "expo-av": "~8.0.0",
+    "global": "^4.4.0",
+    "json-server": "^0.15.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
