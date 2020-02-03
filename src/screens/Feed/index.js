@@ -13,16 +13,16 @@ function Feed() {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.topBar}>
+        <View style={styles.header}>
           <View>
             <TouchableOpacity>
-              <Text style={styles.textTopBarLeft}>Seguindo</Text>
+              <Text style={styles.textLeftHeader}>Seguindo</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.spanTopBar}>|</Text>
+          <Text style={styles.spanCenterHeader}>|</Text>
           <View>
             <TouchableOpacity>
-              <Text style={styles.textTopBarRight}>Para você</Text>
+              <Text style={styles.textRightHeader}>Para você</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -56,19 +56,19 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "black"
   },
-  topBar: {
+  header: {
     flexDirection: "row",
     position: "absolute",
     top: 50,
     alignItems: "center"
   },
-  spanTopBar: { color: "white", fontSize: 10 },
-  textTopBarLeft: {
+  spanCenterHeader: { color: "white", fontSize: 10 },
+  textLeftHeader: {
     color: "grey",
     paddingHorizontal: 10,
     fontSize: 20
   },
-  textTopBarRight: {
+  textRightHeader: {
     color: "white",
     paddingHorizontal: 10,
     fontSize: 23,
