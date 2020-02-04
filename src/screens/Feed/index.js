@@ -10,12 +10,12 @@ import {
 
 import TextTicker from "react-native-text-ticker";
 
+import profile from "../../../assets/perfil-marlon.jpg";
+import iconPlus from "../../../assets/iconplus.png";
+import whiteHeart from "../../../assets/white-heart-fill.png";
+import redHeart from "../../../assets/red-heart.png";
 import comment from "../../../assets/comment.png";
 import iconMusic from "../../../assets/music.png";
-import whiteHeart from "../../../assets/white-heart.png";
-import redHeart from "../../../assets/red-heart.png";
-import iconPlus from "../../../assets/iconplus.png";
-import profile from "../../../assets/perfil-marlon.jpg";
 
 import { Video } from "expo-av";
 
@@ -71,7 +71,7 @@ function Feed() {
                 <Image style={styles.iMusic} source={iconMusic} />
               </View>
               <TextTicker
-                style={styles.music}
+                style={styles.nameMusic}
                 duration={4000}
                 loop
                 bounce={false}
@@ -86,14 +86,31 @@ function Feed() {
         </View>
         <View style={styles.contentIcon}>
           <View style={styles.contentIconProfile}>
-            <Image source={profile} style={styles.iconProfile} />
-            <Image source={iconPlus} style={styles.iconPlusProfile} />
+            <TouchableOpacity>
+              <Image source={profile} style={styles.iconProfile} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={iconPlus} style={styles.iconPlusProfile} />
+            </TouchableOpacity>
           </View>
           <View style={styles.iconsAction}>
-            <Text>bgghfgh</Text>
+            <TouchableOpacity>
+              <Image source={whiteHeart} style={styles.iconAction} />
+              <Text style={styles.textActions}>153.1K</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={comment} style={styles.iconAction} />
+              <Text style={styles.textActions}>208</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={whiteHeart} style={styles.iconAction} />
+              <Text style={styles.textActions}>com</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.iconsMusic}>
-            <Text>cgfhfgh</Text>
+            <TouchableOpacity>
+              <Image source={profile} style={styles.iconProfile} />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -139,27 +156,16 @@ const styles = StyleSheet.create({
     width: "75%",
     position: "absolute",
     left: 0,
-    bottom: 60,
+    bottom: 50,
     zIndex: 2
   },
   InnerContent: {
-    backgroundColor: "red",
     width: "100%",
     position: "relative",
     bottom: 0,
     justifyContent: "flex-end",
     paddingHorizontal: 10,
     flexDirection: "column"
-  },
-  contentIcon: {
-    backgroundColor: "blue",
-    width: "25%",
-    position: "absolute",
-    bottom: 60,
-    right: 0,
-    alignItems: "center",
-    zIndex: 2,
-    height: 300
   },
 
   name: { color: "white", marginVertical: 3, fontSize: 17, fontWeight: "bold" },
@@ -187,8 +193,17 @@ const styles = StyleSheet.create({
     color: "white",
     marginVertical: 5
   },
-
-  contentIconProfile: { color: "white", alignItems: "center" },
+  contentIcon: {
+    width: "20%",
+    position: "absolute",
+    bottom: 50,
+    right: 0,
+    alignItems: "center",
+    zIndex: 2
+  },
+  contentIconProfile: {
+    alignItems: "center"
+  },
   iconProfile: {
     width: 60,
     height: 60,
@@ -198,13 +213,23 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   iconPlusProfile: {
-    height: 25,
+    height: 35,
     width: 25,
-    marginTop: -13
+    position: "relative",
+    bottom: 20,
+    zIndex: 4,
+    resizeMode: "contain"
   },
-  iconsAction: { color: "white" },
-  iconAction: { color: "white" },
-  iconMusic: { color: "white" }
+  iconsAction: {
+    justifyContent: "space-between",
+    marginBottom: 20
+  },
+  iconAction: {
+    height: 40,
+    width: 40
+  },
+  textActions: { color: "white", textAlign: "center" },
+  iconMusic: {}
 });
 
 export default Feed;
