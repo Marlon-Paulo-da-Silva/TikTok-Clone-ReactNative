@@ -14,6 +14,8 @@ import comment from "../../../assets/comment.png";
 import iconMusic from "../../../assets/music.png";
 import whiteHeart from "../../../assets/white-heart.png";
 import redHeart from "../../../assets/red-heart.png";
+import iconPlus from "../../../assets/iconplus.png";
+import profile from "../../../assets/perfil-marlon.jpg";
 
 import { Video } from "expo-av";
 
@@ -52,11 +54,14 @@ function Feed() {
         />
         <View style={styles.content}>
           <View style={styles.InnerContent}>
-            <Text style={styles.name}>@marlon.psilva</Text>
-
-            <Text style={styles.description}>
-              Node.js + ReactJS + React Native
-            </Text>
+            <TouchableOpacity>
+              <Text style={styles.name}>@marlon.psilva</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.description}>
+                Node.js + ReactJS + React Native
+              </Text>
+            </TouchableOpacity>
             <Text style={styles.hashtags}>#TikTok</Text>
             <TouchableOpacity>
               <Text style={styles.translate}>VER TRADUÇÂO</Text>
@@ -80,8 +85,9 @@ function Feed() {
           </View>
         </View>
         <View style={styles.contentIcon}>
-          <View style={styles.iconProfile}>
-            <Text>asass</Text>
+          <View style={styles.contentIconProfile}>
+            <Image source={profile} style={styles.iconProfile} />
+            <Image source={iconPlus} style={styles.iconPlusProfile} />
           </View>
           <View style={styles.iconsAction}>
             <Text>bgghfgh</Text>
@@ -182,7 +188,20 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
 
-  iconProfile: { color: "white" },
+  contentIconProfile: { color: "white", alignItems: "center" },
+  iconProfile: {
+    width: 60,
+    height: 60,
+    resizeMode: "cover",
+    borderRadius: 30,
+    borderColor: "white",
+    borderWidth: 1
+  },
+  iconPlusProfile: {
+    height: 25,
+    width: 25,
+    marginTop: -13
+  },
   iconsAction: { color: "white" },
   iconAction: { color: "white" },
   iconMusic: { color: "white" }
