@@ -43,14 +43,15 @@ function Feed() {
           rate={1.0}
           volume={1.0}
           isMuted={true}
-          resizeMode="cover"
+          resizeMode="contain"
           shouldPlay
           bounce={false}
           isLooping
           style={styles.video}
+          useNativeControls={true}
         />
         <View style={styles.content}>
-          <View style={styles.leftContent}>
+          <View style={styles.InnerContent}>
             <Text style={styles.name}>@marlon.psilva</Text>
 
             <Text style={styles.description}>
@@ -65,18 +66,29 @@ function Feed() {
                 <Image style={styles.iMusic} source={iconMusic} />
               </View>
               <TextTicker
-                style={styles.nameMusic}
-                duration={3000}
+                style={styles.music}
+                duration={4000}
                 loop
-                bounce
-                repeatSpacer={50}
-                marqueeDelay={800}
+                bounce={false}
+                repeatSpacer={70}
+                marqueeDelay={1000}
+                shouldAnimateTreshold={40}
               >
                 I Don’t Care - Ed Sheeran Part Justin Bieber
               </TextTicker>
             </TouchableOpacity>
           </View>
-          <View style={styles.rightContent}></View>
+        </View>
+        <View style={styles.contentIcon}>
+          <View style={styles.iconProfile}>
+            <Text>asass</Text>
+          </View>
+          <View style={styles.iconsAction}>
+            <Text>bgghfgh</Text>
+          </View>
+          <View style={styles.iconsMusic}>
+            <Text>cgfhfgh</Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -118,16 +130,32 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   content: {
-    paddingHorizontal: 10,
-    width: "100%",
+    width: "75%",
     position: "absolute",
-    bottom: 4 + 0,
+    left: 0,
+    bottom: 60,
     zIndex: 2
   },
-  leftContent: {
-    width: "100%"
+  InnerContent: {
+    backgroundColor: "red",
+    width: "100%",
+    position: "relative",
+    bottom: 0,
+    justifyContent: "flex-end",
+    paddingHorizontal: 10,
+    flexDirection: "column"
   },
-  rightContent: {},
+  contentIcon: {
+    backgroundColor: "blue",
+    width: "25%",
+    position: "absolute",
+    bottom: 60,
+    right: 0,
+    alignItems: "center",
+    zIndex: 2,
+    height: 300
+  },
+
   name: { color: "white", marginVertical: 3, fontSize: 17, fontWeight: "bold" },
   description: { color: "white", marginTop: 2, fontSize: 17 },
   hashtags: { color: "white", fontWeight: "bold" },
@@ -154,11 +182,10 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
 
-  rightContent: {},
-  iconProfile: {},
-  iconsAction: {},
-  iconAction: {},
-  iconMusic: {}
+  iconProfile: { color: "white" },
+  iconsAction: { color: "white" },
+  iconAction: { color: "white" },
+  iconMusic: { color: "white" }
 });
 
 export default Feed;
