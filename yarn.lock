@@ -5007,6 +5007,11 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
+react-native-marquee@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-marquee/-/react-native-marquee-0.3.2.tgz#e86fcfe9ea2036637b079d4af0d19f92195aeef2"
+  integrity sha512-GfN97aOapOhrFc4La4N/SoXAjrgZwbB6Im9yJKhNLHx/SsY4Wqoh3OvYrLzznL2GASEDoO3zZXdufStg6NG8TA==
+
 react-native-reanimated@~1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
@@ -5030,6 +5035,11 @@ react-native-screens@2.0.0-alpha.12:
   integrity sha512-x9M7FEdcm97bVDp3pi//nhduJHLFMrmDQs0fq299yx3kHdgHbrmhsa8jgW4HvDQhjyPE0FWADY/GrXFuPRj80w==
   dependencies:
     debounce "^1.2.0"
+
+react-native-text-ticker@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-text-ticker/-/react-native-text-ticker-1.0.0.tgz#5f13d5ce2a6875f98c20d084f98a8d66e845b4b7"
+  integrity sha512-Y3Nr31owNAuDl+tN5Pb6C3vlcms/kuiCuXvz+4G67c76M+0FQj9miAtj6VkOjR27JVW80IynnXvQPAoiMwxtiA==
 
 react-native-view-shot@3.0.2:
   version "3.0.2"
