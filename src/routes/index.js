@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Image } from "react-native";
+import { Image, Text } from "react-native";
 
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
@@ -23,7 +23,10 @@ const Routes = createBottomTabNavigator(
   {
     Inicio: Feed,
     Descobrir: Find,
-    Plus: Plus,
+    Plus: {
+      screen: Plus,
+      navigationOptions: {}
+    },
     "Caixa de Entrada": MessageBox,
     Eu: Profile
   },
@@ -31,15 +34,13 @@ const Routes = createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: "white",
       inactiveTintColor: "grey",
+      showLabel: false,
       style: {
         backgroundColor: "black",
         height: 57,
         borderTopColor: "grey",
         borderTopWidth: 0.19,
         paddingVertical: 7
-      },
-      labelStyle: {
-        fontSize: 10
       }
     },
     defaultNavigationOptions: ({ navigation }) => ({
@@ -55,13 +56,18 @@ const Routes = createBottomTabNavigator(
         else if (routeName === "Eu") IconName = userProfile;
 
         return (
-          <Image
-            source={IconName}
-            style={{
-              width: IconName === plusTikTokWhite ? 40 : 25,
-              height: IconName === plusTikTokWhite ? 25 : 25
-            }}
-          />
+          <>
+            <Image
+              source={IconName}
+              style={{
+                width: IconName === plusTikTokWhite ? 43 : 25,
+                height: IconName === plusTikTokWhite ? 28 : 25
+              }}
+            />
+            {routeName === "Plus" ? null : (
+              <Text style={{ color: "grey", fontSize: 10 }}>{routeName}</Text>
+            )}
+          </>
         );
       }
     })
