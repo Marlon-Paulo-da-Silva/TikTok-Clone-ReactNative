@@ -16,6 +16,7 @@ import whiteHeart from "../../../assets/white-heart-fill.png";
 import redHeart from "../../../assets/red-heart.png";
 import comment from "../../../assets/comment.png";
 import iconMusic from "../../../assets/music.png";
+import whatsapp from "../../../assets/WhatsApp_Logo.png";
 
 import { Video } from "expo-av";
 
@@ -94,22 +95,22 @@ function Feed() {
             </TouchableOpacity>
           </View>
           <View style={styles.iconsAction}>
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.contentIconAction}>
               <Image source={whiteHeart} style={styles.iconAction} />
               <Text style={styles.textActions}>153.1K</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.contentIconAction}>
               <Image source={comment} style={styles.iconAction} />
               <Text style={styles.textActions}>208</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={whiteHeart} style={styles.iconAction} />
-              <Text style={styles.textActions}>com</Text>
+            <TouchableOpacity style={styles.contentIconAction}>
+              <Image source={whatsapp} style={styles.iconWhatsapp} />
+              <Text style={styles.textActions}>Compar-tilhar</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.iconsMusic}>
             <TouchableOpacity>
-              <Image source={profile} style={styles.iconProfile} />
+              <Image source={profile} style={styles.iconMusic} />
             </TouchableOpacity>
           </View>
         </View>
@@ -174,7 +175,8 @@ const styles = StyleSheet.create({
   componentMusic: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 10
+    marginVertical: 10,
+    width: 200
   },
   imageIconMusic: {
     marginRight: 15
@@ -202,13 +204,15 @@ const styles = StyleSheet.create({
     zIndex: 2
   },
   contentIconProfile: {
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 2
   },
+
   iconProfile: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     resizeMode: "cover",
-    borderRadius: 30,
+    borderRadius: 25,
     borderColor: "white",
     borderWidth: 1
   },
@@ -221,15 +225,30 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   iconsAction: {
-    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 20
+  },
+  contentIconAction: {
+    alignItems: "center",
+    marginBottom: 13
   },
   iconAction: {
     height: 40,
     width: 40
   },
-  textActions: { color: "white", textAlign: "center" },
-  iconMusic: {}
+  iconWhatsapp: {
+    height: 40,
+    width: 40,
+    resizeMode: "cover",
+    borderRadius: 20
+  },
+  textActions: { color: "white", textAlign: "center", width: 54 },
+  iconMusic: {
+    width: 50,
+    height: 50,
+    resizeMode: "cover",
+    borderRadius: 30
+  }
 });
 
 export default Feed;
