@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -18,12 +18,32 @@ import comment from "../../../assets/comment.png";
 import iconMusic from "../../../assets/music.png";
 import whatsapp from "../../../assets/WhatsApp_Logo.png";
 
+import api from "../../services/api.js";
+
 import { Video } from "expo-av";
 
 function Feed() {
+  const [feed, setfeed] = useState([]);
+
+  useEffect(() => {
+    async function LoadFeed() {
+      try {
+        const response = await api.get("/feed?_expand=author&_limit=1");
+        const data = await response.data;
+        console.log(data);
+        setfeed(data);
+        console.log(feed);
+      } catch (error) {
+        console.log("Erro da busca: " + error);
+      }
+    }
+
+    LoadFeed();
+  }, []);
+
   return (
     <SafeAreaView>
-      <View style={styles.header}>
+      <View style={[styles.header, { zIndex: 8 }]}>
         <View>
           <TouchableOpacity>
             <Text style={styles.textLeftHeader}>Seguindo</Text>
@@ -36,87 +56,98 @@ function Feed() {
           </TouchableOpacity>
         </View>
       </View>
+
       <View style={styles.container}>
-        <View style={styles.video}>
-          <Video
-            source={{
-              //  uri: "https://drive.google.com/file/d/1dO3vE8iOz8xoikcNeaJYhbQsUv3kbOgJ/view"
-              uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
-              // uri:
-              // "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
-            }}
-            rate={1.0}
-            volume={1.0}
-            isMuted={true}
-            resizeMode="contain"
-            shouldPlay
-            bounce={false}
-            isLooping
-            style={styles.videoPlayer}
-            useNativeControls={true}
-          />
-        </View>
-        <View style={styles.content}>
-          <View style={styles.InnerContent}>
-            <TouchableOpacity>
-              <Text style={styles.name}>@marlon.psilva</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text style={styles.description}>
-                Node.js + ReactJS + React Native
-              </Text>
-            </TouchableOpacity>
-            <Text style={styles.hashtags}>#TikTok</Text>
-            <TouchableOpacity>
-              <Text style={styles.translate}>VER TRADUÇÂO</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.componentMusic}>
-              <View style={styles.imageIconMusic}>
-                <Image style={styles.iMusic} source={iconMusic} />
-              </View>
-              <TextTicker
-                style={styles.nameMusic}
-                duration={4000}
-                loop
+        {feed.map(item => (
+          <View key={item.id} style={styles.post}>
+            <View style={styles.video}>
+              <Video
+                source={{
+                  //  uri: "https://drive.google.com/file/d/1dO3vE8iOz8xoikcNeaJYhbQsUv3kbOgJ/view"
+                  // uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
+                  uri:
+                    "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
+                }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={true}
+                resizeMode="contain"
+                shouldPlay
                 bounce={false}
-                repeatSpacer={70}
-                marqueeDelay={1000}
-                shouldAnimateTreshold={40}
-              >
-                I Don’t Care - Ed Sheeran Part Justin Bieber
-              </TextTicker>
-            </TouchableOpacity>
+                isLooping
+                style={styles.videoPlayer}
+                useNativeControls={true}
+              />
+            </View>
+            <View style={styles.content}>
+              <View style={styles.InnerContent}>
+                <TouchableOpacity>
+                  <Text style={styles.name}>{item.author.name}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text style={styles.description} numberOfLines={5}>
+                    {item.description}
+                  </Text>
+                </TouchableOpacity>
+                <Text style={styles.hashtags}>{item.hashtags}</Text>
+                <TouchableOpacity>
+                  <Text style={styles.translate}>VER TRADUÇÂO</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.componentMusic}>
+                  <View style={styles.imageIconMusic}>
+                    <Image style={styles.iMusic} source={iconMusic} />
+                  </View>
+                  <TextTicker
+                    style={styles.nameMusic}
+                    duration={4000}
+                    loop
+                    bounce={false}
+                    repeatSpacer={70}
+                    marqueeDelay={1000}
+                    shouldAnimateTreshold={40}
+                  >
+                    I Don’t Care - Ed Sheeran Part Justin Bieber
+                  </TextTicker>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.contentIcon}>
+              <View style={styles.contentIconProfile}>
+                <TouchableOpacity>
+                  <Image
+                    source={{ uri: item.author.avatar }}
+                    style={styles.iconProfile}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={iconPlus} style={styles.iconPlusProfile} />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.iconsAction}>
+                <TouchableOpacity style={styles.contentIconAction}>
+                  <Image source={whiteHeart} style={styles.iconAction} />
+                  <Text style={styles.textActions}>153.1K</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.contentIconAction}>
+                  <Image source={comment} style={styles.iconAction} />
+                  <Text style={styles.textActions}>208</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.contentIconAction}>
+                  <Image source={whatsapp} style={styles.iconWhatsapp} />
+                  <Text style={styles.textActions}>Compar-tilhar</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.iconsMusic}>
+                <TouchableOpacity>
+                  <Image
+                    source={{ uri: item.author.avatar }}
+                    style={styles.iconMusic}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
-        </View>
-        <View style={styles.contentIcon}>
-          <View style={styles.contentIconProfile}>
-            <TouchableOpacity>
-              <Image source={profile} style={styles.iconProfile} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={iconPlus} style={styles.iconPlusProfile} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.iconsAction}>
-            <TouchableOpacity style={styles.contentIconAction}>
-              <Image source={whiteHeart} style={styles.iconAction} />
-              <Text style={styles.textActions}>153.1K</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.contentIconAction}>
-              <Image source={comment} style={styles.iconAction} />
-              <Text style={styles.textActions}>208</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.contentIconAction}>
-              <Image source={whatsapp} style={styles.iconWhatsapp} />
-              <Text style={styles.textActions}>Compar-tilhar</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.iconsMusic}>
-            <TouchableOpacity>
-              <Image source={profile} style={styles.iconMusic} />
-            </TouchableOpacity>
-          </View>
-        </View>
+        ))}
       </View>
     </SafeAreaView>
   );
@@ -124,13 +155,20 @@ function Feed() {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "black",
+    zIndex: 1,
+    alignSelf: "stretch"
+  },
+  post: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    height: "100%",
-    backgroundColor: "black",
-    zIndex: 1
+    flex: 1,
+    zIndex: 1,
+    alignSelf: "stretch"
   },
   video: {
     width: "100%",
@@ -147,8 +185,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 40,
     left: 75,
-    alignItems: "center",
-    zIndex: 7
+    alignItems: "center"
   },
   spanCenterHeader: { color: "white", fontSize: 10 },
   textLeftHeader: {
@@ -179,14 +216,14 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
 
-  name: { color: "white", marginVertical: 3, fontSize: 17, fontWeight: "bold" },
-  description: { color: "white", marginTop: 2, fontSize: 17 },
+  name: { color: "white", marginVertical: 3, fontSize: 15, fontWeight: "bold" },
+  description: { color: "white", marginTop: 2, fontSize: 15 },
   hashtags: { color: "white", fontWeight: "bold" },
   componentMusic: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 10,
-    width: 200
+    width: 190
   },
   imageIconMusic: {
     marginRight: 15
