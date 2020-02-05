@@ -40,6 +40,7 @@ function Feed() {
         <View style={styles.video}>
           <Video
             source={{
+              //  uri: "https://drive.google.com/file/d/1dO3vE8iOz8xoikcNeaJYhbQsUv3kbOgJ/view"
               uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
               // uri:
               // "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     top: 40,
     left: 75,
     alignItems: "center",
-    zIndex: 5
+    zIndex: 7
   },
   spanCenterHeader: { color: "white", fontSize: 10 },
   textLeftHeader: {
