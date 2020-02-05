@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="https://github.com/Marlon-Paulo-da-Silva/TikTok-Clone-ReactNative/tree/master/assets/tiktoklogo.png" alt="tiktoklogo" width="120">
+  <img src="https://github.com/Marlon-Paulo-da-Silva/TikTok-Clone-ReactNative/blob/master/assets/tiktoklogo.png" alt="tiktoklogo" width="120">
 <br>
 <br>
 TikTokClone
@@ -15,7 +15,7 @@ TikTokClone
 </p>
 
 <div align="center">
-  <img align="center" src="https://github.com/Marlon-Paulo-da-Silva/TikTok-Clone-ReactNative/tree/master/tiktok.gif" alt="demo" height="425">
+  <img align="center" src="https://github.com/Marlon-Paulo-da-Silva/TikTok-Clone-ReactNative/blob/master/tiktok.gif" alt="demo" height="425">
 
 </div>
 
