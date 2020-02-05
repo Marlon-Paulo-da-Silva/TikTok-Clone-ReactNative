@@ -23,36 +23,38 @@ import { Video } from "expo-av";
 function Feed() {
   return (
     <SafeAreaView>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <View>
-            <TouchableOpacity>
-              <Text style={styles.textLeftHeader}>Seguindo</Text>
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.spanCenterHeader}>|</Text>
-          <View>
-            <TouchableOpacity>
-              <Text style={styles.textRightHeader}>Para você</Text>
-            </TouchableOpacity>
-          </View>
+      <View style={styles.header}>
+        <View>
+          <TouchableOpacity>
+            <Text style={styles.textLeftHeader}>Seguindo</Text>
+          </TouchableOpacity>
         </View>
-        <Video
-          source={{
-            uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
-            // uri:
-            // "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
-          }}
-          rate={1.0}
-          volume={1.0}
-          isMuted={true}
-          resizeMode="contain"
-          shouldPlay
-          bounce={false}
-          isLooping
-          style={styles.video}
-          useNativeControls={true}
-        />
+        <Text style={styles.spanCenterHeader}>|</Text>
+        <View>
+          <TouchableOpacity>
+            <Text style={styles.textRightHeader}>Para você</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.video}>
+          <Video
+            source={{
+              uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
+              // uri:
+              // "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
+            }}
+            rate={1.0}
+            volume={1.0}
+            isMuted={true}
+            resizeMode="contain"
+            shouldPlay
+            bounce={false}
+            isLooping
+            style={styles.videoPlayer}
+            useNativeControls={true}
+          />
+        </View>
         <View style={styles.content}>
           <View style={styles.InnerContent}>
             <TouchableOpacity>
@@ -126,17 +128,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: "black"
+    backgroundColor: "black",
+    zIndex: 1
   },
   video: {
     width: "100%",
-    height: 400,
+    flex: 1,
     zIndex: 1
+  },
+  videoPlayer: {
+    width: "100%",
+    zIndex: 1,
+    flex: 1
   },
   header: {
     flexDirection: "row",
     position: "absolute",
     top: 40,
+    left: 75,
     alignItems: "center",
     zIndex: 5
   },
@@ -157,7 +166,7 @@ const styles = StyleSheet.create({
     width: "75%",
     position: "absolute",
     left: 0,
-    bottom: 50,
+    bottom: 0,
     zIndex: 2
   },
   InnerContent: {
@@ -198,7 +207,7 @@ const styles = StyleSheet.create({
   contentIcon: {
     width: "20%",
     position: "absolute",
-    bottom: 50,
+    bottom: 11,
     right: 0,
     alignItems: "center",
     zIndex: 2
