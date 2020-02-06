@@ -43,7 +43,7 @@ function Feed() {
 
   return (
     <SafeAreaView>
-      <View style={[styles.header, { zIndex: 8 }]}>
+      <View style={[styles.header, { zIndex: 7 }]}>
         <View>
           <TouchableOpacity>
             <Text style={styles.textLeftHeader}>Seguindo</Text>
