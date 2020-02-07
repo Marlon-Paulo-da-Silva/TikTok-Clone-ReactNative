@@ -30,6 +30,8 @@ Essa aplicação utiliza as mais atualizadas ferramentas para desenvolvimento Mo
 
 - Todos os components do layout principal do TikTok
 - Nome da Musica dando Scroll
+- ViewPager Horizontal
+- Foto do Perfil vindo da Api do Github
 
 ## Começe a usar
 
