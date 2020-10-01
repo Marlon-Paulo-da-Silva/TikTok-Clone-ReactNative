@@ -22,6 +22,35 @@ TikTokClone
 
 <hr />
 
+## Description:-
+
+## English :-
+
+## Features :-
+
+This application uses the most up-to-date tools for Mobile development:
+
+⚛️ ** React Native ** - A Lib that allows you to create native Apps for Android and iOS
+
+- All components of the main TikTok layout
+- Song name giving Scroll
+- Horizontal ViewPager
+- Profile picture from Api do Github
+
+## Start using
+
+1. Clone this repository using: `git clone git@github.com: Marlon-Paulo-da-Silva / TikTok-Clone-ReactNative.git`
+2. Open the folder using: `cd TikTok-Clone-ReactNative` <br />
+3. Run `yarn install` to install dependencies <br />
+4. Run `expo start` to open the App
+5. Run `yarn json-server server.json -H" 192.168.0.105 "-p 8000 -d 1000 -w` to open server.json as an API (Instead of the quotation marks use the Expo Lan IP of your machine, without quotes)
+
+## License
+
+This project is licensed under the MIT License - see the [License] details page (https://opensource.org/licenses/MIT).
+
+## Spanish :-
+
 ## Características
 
 Essa aplicação utiliza as mais atualizadas ferramentas para desenvolvimento Mobile:
