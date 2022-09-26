@@ -49,7 +49,7 @@ This application uses the most up-to-date tools for Mobile development:
 
 This project is licensed under the MIT License - see the [License] details page (https://opensource.org/licenses/MIT).
 
-## Spanish :-
+## Português :-
 
 ## Características
 
